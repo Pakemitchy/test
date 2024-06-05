@@ -3,7 +3,7 @@ import 'login.dart';
 import 'jadwalpertemuan.dart';
 
 class ProfilePage extends StatelessWidget {
-  final Color customColor = Color.fromARGB(255, 255, 255, 255);
+  final Color customColor = Color.fromARGB(255, 110, 174, 115);
 
   @override
   Widget build(BuildContext context) {

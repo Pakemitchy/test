@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'testimonial.dart'; // Import the shared testimonial section
 import 'berita.dart'; // Import the BeritaPage
+import 'jadwalpertemuanuser.dart'; // Import the JadwalPertemuanUserPage
 
 class TindakanAdminPage extends StatefulWidget {
   @override
@@ -12,12 +13,14 @@ class _TindakanAdminPageState extends State<TindakanAdminPage> {
     {
       'title': 'Hari Notaris Nasional',
       'date': '1 Maret 2024',
-      'description': 'Merayakan Hari Notaris Nasional dengan berbagai kegiatan dan seminar.'
+      'description':
+          'Merayakan Hari Notaris Nasional dengan berbagai kegiatan dan seminar.'
     },
     {
       'title': 'Seminar Hukum Properti',
       'date': '15 Mei 2024',
-      'description': 'Seminar tentang perkembangan terbaru dalam hukum properti.'
+      'description':
+          'Seminar tentang perkembangan terbaru dalam hukum properti.'
     },
     // Add other initial news items here
   ];
@@ -134,24 +137,25 @@ class _TindakanAdminPageState extends State<TindakanAdminPage> {
                 },
               ),
               SizedBox(height: 20),
+              TestimonialSection(
+                allowDelete: true,
+              ),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => BeritaPage(beritaList: _beritaList)),
+                    MaterialPageRoute(
+                        builder: (context) => JadwalPertemuanUserPage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(vertical: 12, horizontal: 50),
                 ),
                 child: Text(
-                  'Berita',
+                  'Jadwal Pertemuan',
                   style: TextStyle(fontSize: 18),
                 ),
-              ),
-              SizedBox(height: 20),
-              TestimonialSection(
-                allowDelete: true,
               ),
             ],
           ),
