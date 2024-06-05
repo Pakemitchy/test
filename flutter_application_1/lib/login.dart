@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'navigasi.dart';
+import 'navigasi.dart'; // Import halaman navigasi jika belum diimport
+import 'admin.dart'; // Import halaman admin jika belum diimport
+
 class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -65,13 +67,33 @@ class LoginPage extends StatelessWidget {
                     SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
-                        // Implementasikan logika login di sini
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Navigasi(showSnackbar: true),
-                          ),
-                        );
+                        String email = emailController.text;
+                        String password = passwordController.text;
+
+                        // Ganti dengan validasi email dan password sesuai kebutuhan Anda
+                        if (email == 'use' && password == '1') {
+                          // Navigasi ke halaman user biasa
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Navigasi(),
+                            ),
+                          );
+                        } else if (email == 'ad' && password == '2') {
+                          // Navigasi ke halaman admin
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AdminPage(),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Email atau Password salah'),
+                            ),
+                          );
+                        }
                       },
                       child: Text('Login'),
                       style: ElevatedButton.styleFrom(
