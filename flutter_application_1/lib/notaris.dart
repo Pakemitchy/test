@@ -6,32 +6,30 @@ class NotarisPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Halaman Notaris'),
-        backgroundColor: customColor,
-      ),
+      backgroundColor: Colors.grey[200], // Tambahkan latar belakang abu-abu
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            // Menambahkan gambar di paling atas
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(16),
-                bottomRight: Radius.circular(16),
-              ),
-              child: Image.asset(
-                'assets/images/ppat.jpeg',
-                height: 200, // Sesuaikan tinggi gambar
-                width: double.infinity, // Sesuaikan lebar gambar
-                fit: BoxFit.cover, // Sesuaikan gambar dengan container
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/ppat.jpeg',
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            SizedBox(height: 20), // Berikan jarak antara gambar dan teks
+            SizedBox(
+                height:
+                    20), // Berikan jarak antara gambar dan teks// Berikan jarak antara gambar dan teks
 
             // Kotak dengan teks Persyaratan Pendirian PT
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: Container(
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -52,12 +50,19 @@ class NotarisPage extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'Pendirian PT',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: customColor),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: customColor,
+                      ),
                     ),
                     SizedBox(height: 10),
                     Text(
                       'PERSYARATAN PENDIRIAN PT:',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: customColor),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: customColor,
+                      ),
                     ),
                     SizedBox(height: 10),
                     ..._buildRequirementList(),
@@ -68,17 +73,19 @@ class NotarisPage extends StatelessWidget {
             SizedBox(height: 20), // Berikan jarak antara konten dan tombol
 
             // Tombol Berita di bagian bawah
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => BeritaPage()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                ),
-                child: Text('Berita'),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BeritaPage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 50),
+              ),
+              child: Text(
+                'Berita',
+                style: TextStyle(fontSize: 18),
               ),
             ),
             SizedBox(height: 20), // Berikan jarak di bawah tombol
@@ -101,19 +108,21 @@ class NotarisPage extends StatelessWidget {
       '9. Menentukan Nama-nama Pengurus PT yaitu: Dewan Direksi dan Dewan Komisaris.',
       '10. Pemegang saham boleh merangkap mengisi jabatan sebagai Direktur atau Komisaris. Tapi satu orang tidak boleh menjabat menjadi Direktur sekaligus Komisaris.',
       '11. Menentukan Modal Dasar berdasarkan ketentuan mengenai SIUP:',
-      '    - PT di bidang SIUP umum maupun jasa:',
+      '      - PT di bidang SIUP umum maupun jasa:',
       '      - SIUP mikro min. Rp. 50.000.000,-.',
       '      - SIUP kecil 51.000.000,- s/d Rp. 500.000.000,-.',
       '      - SIUP Menengah Rp. 501.000.000,- s/d Rp. 10 M.',
       '      - SIUP Besar ≥ 10 M.',
     ];
-    return requirements.map((item) => Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2.0),
-      child: Text(
-        item,
-        style: TextStyle(fontSize: 16, color: Colors.grey[800]),
-      ),
-    )).toList();
+    return requirements
+        .map((item) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Text(
+                item,
+                style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+              ),
+            ))
+        .toList();
   }
 }
 
@@ -122,32 +131,38 @@ class BeritaPage extends StatelessWidget {
     {
       'title': 'Hari Notaris Nasional',
       'date': '1 Maret 2024',
-      'description': 'Merayakan Hari Notaris Nasional dengan berbagai kegiatan dan seminar.'
+      'description':
+          'Merayakan Hari Notaris Nasional dengan berbagai kegiatan dan seminar.'
     },
     {
       'title': 'Seminar Hukum Properti',
       'date': '15 Mei 2024',
-      'description': 'Seminar tentang perkembangan terbaru dalam hukum properti.'
+      'description':
+          'Seminar tentang perkembangan terbaru dalam hukum properti.'
     },
     {
       'title': 'Workshop Kontrak Bisnis',
       'date': '30 Juni 2024',
-      'description': 'Workshop untuk memahami pembuatan kontrak bisnis yang efektif.'
+      'description':
+          'Workshop untuk memahami pembuatan kontrak bisnis yang efektif.'
     },
     {
       'title': 'Peringatan HUT Kemerdekaan',
       'date': '17 Agustus 2024',
-      'description': 'Kegiatan memperingati Hari Kemerdekaan dengan upacara dan lomba.'
+      'description':
+          'Kegiatan memperingati Hari Kemerdekaan dengan upacara dan lomba.'
     },
     {
       'title': 'Pelatihan Digitalisasi Notaris',
       'date': '5 September 2024',
-      'description': 'Pelatihan tentang penggunaan teknologi digital dalam pekerjaan notaris.'
+      'description':
+          'Pelatihan tentang penggunaan teknologi digital dalam pekerjaan notaris.'
     },
     {
       'title': 'Simposium Internasional Notaris',
       'date': '20 Oktober 2024',
-      'description': 'Simposium internasional yang membahas isu-isu global dalam notaris.'
+      'description':
+          'Simposium internasional yang membahas isu-isu global dalam notaris.'
     },
   ];
 
@@ -172,9 +187,15 @@ class BeritaPage extends StatelessWidget {
             child: ListTile(
               title: Text(
                 berita['title']!,
-                style: TextStyle(fontWeight: FontWeight.bold, color: customColor),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: customColor,
+                ),
               ),
-              subtitle: Text('${berita['date']}\n${berita['description']}'),
+              subtitle: Text(
+                '${berita['date']}\n${berita['description']}',
+                style: TextStyle(color: Colors.grey[800]),
+              ),
               isThreeLine: true,
             ),
           );

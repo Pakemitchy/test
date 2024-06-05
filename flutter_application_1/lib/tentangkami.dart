@@ -10,9 +10,6 @@ class TentangKamiPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tentang Kami'),
-      ),
       body: Container(
         padding: EdgeInsets.all(16),
         child: SingleChildScrollView(
@@ -72,7 +69,8 @@ class TentangKamiPage extends StatelessWidget {
                         label: Text('Hubungi Kami'),
                         style: ElevatedButton.styleFrom(
                           textStyle: TextStyle(fontSize: 18),
-                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -148,7 +146,8 @@ class HubungiKamiPage extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     ),
                   ),
                 ),
