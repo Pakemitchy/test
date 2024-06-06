@@ -4,6 +4,7 @@ import 'notaris.dart';
 import 'ppat.dart';
 import 'profile.dart';
 import 'tentangkami.dart';
+import 'profileuser.dart'; // Import halaman ProfileUser
 
 class Navigasi extends StatelessWidget {
   final bool showSnackbar;
@@ -16,8 +17,23 @@ class Navigasi extends StatelessWidget {
       length: 5,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Digital Notary Services'),
           backgroundColor: Color.fromARGB(255, 110, 174, 115),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Digital Notary Services'),
+              IconButton(
+                icon: Icon(Icons.person),
+                onPressed: () {
+                  // Navigasi ke halaman profile
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfileUserPage()),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
         body: TabBarView(
           children: [
